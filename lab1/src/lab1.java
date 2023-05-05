@@ -4,28 +4,31 @@ public class lab1 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        int c = 9;
+        final int c = 0;
         double res = 0;
 
         System.out.print("Input a: ");
-        double a = scanner.nextDouble();
+        int a = scanner.nextInt();
         System.out.print("Input b: ");
-        double b = scanner.nextDouble();
+        int b = scanner.nextInt();
         System.out.print("Input n: ");
-        int n = scanner.nextInt();
+        final int n = scanner.nextInt();
         System.out.print("Input m: ");
-        int m = scanner.nextInt();
+        final int m = scanner.nextInt();
 
+        //Перевірка i / 0
+        // C == 0
 
-        if (a > n || b > m) {
-            System.out.println("неможлива сума");
-            return;
-        }
         for (double i = a; i <= n; i++) {
-            if (i == c) {
-                System.out.println("Ділення на ноль");
-                return;
+            for (double j = b; j <= m; j++) {
+                if (i == c || j == 0) {
+                    System.out.println("Ділення на ноль");
+                    return;
+                }
             }
+        }
+
+        for (double i = a; i <= n; i++) {
             for (double j = b; j <= m; j++) {
                 res += (i % j) / (i - c);
             }
