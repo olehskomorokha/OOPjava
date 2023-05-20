@@ -1,20 +1,36 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Main {
     public static void main(String[] args) {
-        clothe element1 = new clothe();
-        element1.SetValue("43", "White", "Sneekers","Puma", 2450,44);
-        String res1 = element1.getValue();
-        System.out.println(res1);
+        System.out.println("Екземпляри класа: ");
+        clothe el1 = new clothe("Сукня", "Верхній одяг", "M", "Червоний", 99.99f);
+        clothe el2 = new clothe("Футболка", "Верхній одяг", "S", "Синій", 19.99f);
+        clothe el3 = new clothe("Штани", "Низ", "L", "Чорний", 49.99f);
+        clothe el4 = new clothe("Сорочка", "Верхній одяг", "XL", "Білий", 79.99f);
+        clothe el5 = new clothe("Шапка", "Аксесуар", "One Size", "Зелений", 9.99f);
+        clothe[] array = new clothe[]{el1, el2, el3, el4, el5};
 
 
-        clothe element2 = new clothe();
-        element2.SetValue("S", "Black", "T-short","adidas", 799,44);
-        String res2 = element2.getValue();
-        System.out.println(res2);
+        // Сортування за ціною в порядку спадання
+        System.out.println("----------------------------------------" +
+                "\nСортування за \"ціною\" в порядку спадання:");
+        Arrays.sort(array, Comparator.comparingDouble(clothe::Get_price).reversed());
 
-        clothe element3 = new clothe();
-        element3.SetValue("XS", "Black", "Pants","adidas", 899,44);
-        String res3 = element3.getValue();
-        System.out.println(res3);
+        // Виведення відсортованого масиву
+        for (clothe clothe : array) {
+            System.out.println("Назва: " + clothe.Get_name() + "; Категорія: " + clothe.Get_category() + "; Розмір: " + clothe.Get_size() +
+                    "; колір: " + clothe.Get_color() + "; ціна: " + clothe.Get_price());
+        }
 
+        // Сортування за полем "назва" в алфавітному порядку
+        System.out.println("----------------------------------------" +
+                "\nСортування за полем \"назва\" в алфавітному порядку:");
+        Arrays.sort(array, Comparator.comparing(clothe::Get_name));
+        // Виведення відсортованого масиву
+        for (clothe clothe : array) {
+            System.out.println("Назва: " + clothe.Get_name() + "; Категорія: " + clothe.Get_category() + "; Розмір: " + clothe.Get_size() +
+                    "; колір: " + clothe.Get_color() + "; ціна: " + clothe.Get_price());
+        }
     }
 }
