@@ -60,7 +60,7 @@ public class lab2 {
         for (int i = 0; i < c.length; i++) {
             if ((i + 1) % 2 == 0) {
                 max = c[i][0];
-                for (int j = 0; j < c[i].length; j++) {
+                for (int j = 1; j < c[i].length; j++) {
 
                     if (c[i][j] > max) {
                         max = c[i][j];
@@ -70,7 +70,7 @@ public class lab2 {
                 System.out.println("Найбільший елемент [" + (i + 1) + "]: " + max);
             } else {
                 min = c[i][0];
-                for (int j = 0; j < c[i].length; j++) {
+                for (int j = 1; j < c[i].length; j++) {
                     if (c[i][j] < min) {
                         min = c[i][j];
                     }
