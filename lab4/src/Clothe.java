@@ -35,6 +35,7 @@ public class Clothe {
     }
 
     public String Get_category() {
+
         return category;
     }
 
